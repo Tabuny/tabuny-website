@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  forced-color-adjust: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light only;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  background-color: #2B1D16;
+  color: #F5F0E8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Nuclear option: prevent Android/iOS dark mode from touching ANY colors */
+@media (prefers-color-scheme: dark) {
+  html {
+    filter: none !important;
+    color-scheme: light only !important;
+  }
+  body {
+    background-color: #2B1D16 !important;
+    color: #F5F0E8 !important;
+  }
+  * {
+    forced-color-adjust: none !important;
+  }
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #2B1D16; }
+::-webkit-scrollbar-thumb { background: #C8A46B; border-radius: 3px; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
