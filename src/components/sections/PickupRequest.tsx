@@ -104,15 +104,15 @@ export default function PickupRequest() {
         <p style={{ color: darkMuted, fontSize: '14px', lineHeight: '1.7', maxWidth: '520px', margin: '10px auto 0' }}>{t('desc')}</p>
       </div>
 
-      <div style={{ backgroundColor: wood, border: `1px solid rgba(200,164,107,0.18)`, padding: '40px', boxShadow: '0 4px 24px rgba(0,0,0,0.25)' }}>
+      <div className="picker-card" style={{ backgroundColor: wood, border: `1px solid rgba(200,164,107,0.18)`, padding: '40px', boxShadow: '0 4px 24px rgba(0,0,0,0.25)' }}>
 
         {/* CLASSIC ROW */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', padding: '16px 20px', background: 'rgba(200,164,107,0.06)', border: `1px solid rgba(200,164,107,0.15)`, marginBottom: '16px' }}>
+        <div className="picker-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', padding: '16px 20px', background: 'rgba(200,164,107,0.06)', border: `1px solid rgba(200,164,107,0.15)`, marginBottom: '16px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
-            <div style={{ fontFamily: '"Playfair Display", serif', color: ivory, fontSize: '17px', fontWeight: 700 }}>{tProd('product1Name')}</div>
+            <div className="picker-row-name" style={{ fontFamily: '"Playfair Display", serif', color: ivory, fontSize: '17px', fontWeight: 700 }}>{tProd('product1Name')}</div>
             <div style={{ color: muted, fontSize: '12px', marginTop: '2px' }}>{t('packUnit')} &middot; {fmt(CLASSIC_PRICE)}</div>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div className="picker-row-controls" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <span style={{ color: gold, fontSize: '13px', fontWeight: 700, minWidth: '78px', textAlign: 'right' }}>{classic > 0 ? fmt(classicTotal) : ''}</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <button type="button" aria-label="decrease" onClick={() => setClassic((q) => Math.max(0, q - 1))} style={stepperBtn}><Minus size={15} /></button>
@@ -123,12 +123,12 @@ export default function PickupRequest() {
         </div>
 
         {/* SPECIAL OFFER ROW */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', padding: '16px 20px', background: 'rgba(200,164,107,0.1)', border: `1px solid rgba(200,164,107,0.3)`, marginBottom: '8px' }}>
+        <div className="picker-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', padding: '16px 20px', background: 'rgba(200,164,107,0.1)', border: `1px solid rgba(200,164,107,0.3)`, marginBottom: '8px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
-            <div style={{ fontFamily: '"Playfair Display", serif', color: ivory, fontSize: '17px', fontWeight: 700 }}>{t('offerName')}</div>
+            <div className="picker-row-name" style={{ fontFamily: '"Playfair Display", serif', color: ivory, fontSize: '17px', fontWeight: 700 }}>{t('offerName')}</div>
             <div style={{ color: gold, fontSize: '12px', marginTop: '2px', fontWeight: 600 }}>{t('offerText')}</div>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div className="picker-row-controls" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <span style={{ color: gold, fontSize: '13px', fontWeight: 700, minWidth: '78px', textAlign: 'right' }}>{offer > 0 ? fmt(offerTotal) : ''}</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <button type="button" aria-label="decrease" onClick={decOffer} style={stepperBtn}><Minus size={15} /></button>
@@ -192,7 +192,11 @@ export default function PickupRequest() {
 
       <style>{`
         @media (max-width: 600px) {
+          .picker-card { padding: 24px 18px !important; }
           .pickup-fields-grid { grid-template-columns: 1fr !important; }
+          .picker-row { flex-direction: column !important; align-items: stretch !important; gap: 14px !important; padding: 16px !important; }
+          .picker-row-controls { justify-content: space-between !important; width: 100%; gap: 8px !important; }
+          .picker-row-name { font-size: 16px !important; }
         }
         .pickup-card-input:focus { border-color: rgba(200,164,107,0.7) !important; }
         .pickup-card-input::placeholder { color: rgba(154,134,114,0.7); }
