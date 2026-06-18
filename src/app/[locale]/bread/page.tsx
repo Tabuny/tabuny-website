@@ -31,6 +31,7 @@ export default function BreadPage() {
       weight: t('product1Weight'),
       prep: t('product1Prep'),
       ingredients: t('product1Ingredients'),
+      infoOnly: false,
     },
     {
       id: 'specialty-tabuny',
@@ -40,6 +41,7 @@ export default function BreadPage() {
       weight: t('product2Weight'),
       prep: t('product2Prep'),
       ingredients: t('product2Ingredients'),
+      infoOnly: true,
     },
   ];
 
@@ -148,6 +150,8 @@ export default function BreadPage() {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
+                    alignItems: product.infoOnly ? 'center' : 'flex-start',
+                    textAlign: product.infoOnly ? 'center' : 'left',
                   }}>
                     <h3 style={{
                       fontFamily: '"Playfair Display", serif',
@@ -160,11 +164,13 @@ export default function BreadPage() {
                       {product.name}
                     </h3>
 
-                    <p style={{ color: darkMuted, fontSize: '15px', lineHeight: '1.8', fontWeight: '500', marginBottom: '32px' }}>
+                    <p style={{ color: darkMuted, fontSize: '15px', lineHeight: '1.8', fontWeight: '500', marginBottom: product.infoOnly ? '0' : '32px' }}>
                       {product.desc}
                     </p>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px' }}>
+                    {!product.infoOnly && (
+                    <>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px', width: '100%' }}>
                       <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', padding: '12px 16px', background: 'rgba(200,164,107,0.06)', border: `1px solid rgba(139,100,32,0.15)` }}>
                         <span style={{ color: goldDeep, fontSize: '11px', fontWeight: '700', letterSpacing: '0.1em', textTransform: 'uppercase', minWidth: '100px', flexShrink: 0 }}>{t('preparation')}</span>
                         <span style={{ color: darkMuted, fontSize: '13px', lineHeight: '1.6' }}>{product.prep}</span>
@@ -192,6 +198,8 @@ export default function BreadPage() {
                     }}>
                       {t('pickupCta')} <ArrowRight size={14} />
                     </Link>
+                    </>
+                    )}
                   </div>
                 </div>
               </div>

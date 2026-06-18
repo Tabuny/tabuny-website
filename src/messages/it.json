@@ -80,8 +80,8 @@
     "product1Name": "Il Tabuny Classico",
     "product1Desc": "Il nostro pane piatto tradizionale, preparato con dedizione per un'autentica esperienza gustativa. Croccante fuori, morbido dentro.",
     "product1Weight": "250g per pezzo",
-    "product1Prep": "Riscaldare in forno preriscaldato a 180°C per 5 minuti.",
-    "product1Ingredients": "Farina di frumento, acqua, lievito, sale, olio d'oliva.",
+    "product1Prep": "Riscaldare in forno preriscaldato a 200°C per 3-4 minuti.",
+    "product1Ingredients": "Ingredienti: Farina di frumento, acqua, crusca di frumento, sale, lievito. Contiene: Frumento (glutine).",
     "product2Name": "Specialità Raffinate",
     "product2Desc": "Scoprite le nostre varianti raffinate con semi pregiati o erbe aromatiche per un'esperienza gustativa speciale.",
     "product2Weight": "250g per pezzo",
@@ -149,7 +149,8 @@
       "pickup": "Ritiro",
       "partnership": "Partnership",
       "feedback": "Feedback",
-      "other": "Altro"
+      "other": "Altro",
+      "order": "Ordine"
     },
     "pickupCity": "Luogo di Ritiro",
     "pickupDate": "Data Preferita",
@@ -195,7 +196,11 @@
     "continue": "Continua la Richiesta",
     "note": "Richiesta senza impegno – confermeremo data, ora e luogo con te.",
     "summaryHeading": "Richiesta di ritiro:",
-    "packUnitShort": "confezione/i"
+    "packUnitShort": "confezione/i",
+    "offerName": "Offerta Specialità Raffinate",
+    "offerText": "Da 5 confezioni: solo CHF 5.50 per confezione",
+    "offerHint": "Questa offerta si applica da 5 confezioni.",
+    "totalLabel": "Totale"
   },
   "forBusinesses": {
     "hero": "Un Partner Affidabile Per la Tua Azienda.",
@@ -211,10 +216,11 @@
     "gastroIntro": "Quantità su misura per ristoranti, hotel e commercio. Ordina a cartoni – prepareremo il tuo preventivo.",
     "featuredLabel": "Per Aziende",
     "packagingLabel": "Unità di Imballaggio",
-    "kartonUnit": "1 cartone (22 confezioni da 5 pz)",
+    "kartonUnit": "Unità all'ingrosso: 1 cartone da 24 confezioni (5 pz ciascuna).",
     "quantityLabel": "Cartoni",
     "addToInquiry": "Aggiungi alla Richiesta",
-    "addedToInquiry": "Aggiunto"
+    "addedToInquiry": "Aggiunto",
+    "emailHeading": "Nuovo ordine aziendale:"
   },
   "trust": {
     "item1Label": "Servizio svizzero",

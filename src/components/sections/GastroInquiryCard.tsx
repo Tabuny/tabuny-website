@@ -1,41 +1,47 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
-import { Plus, Minus, Check, ArrowRight } from 'lucide-react';
-import { useCart } from '@/context/CartContext';
+import { useLocale, useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
+import { Plus, Minus, Package, ArrowRight } from 'lucide-react';
 
 const gold = '#C8A46B';
 const goldDark = '#A8843B';
 const ivory = '#F5F0E8';
 const walnut = '#2B1D16';
 const wood = '#3A261C';
-const darkWood = '#1A110D';
 const beige = '#D8C6AE';
 const muted = '#9A8672';
 
 export default function GastroInquiryCard() {
   const t = useTranslations('products');
   const tB = useTranslations('forBusinesses');
-  const { addItem } = useCart();
+  const locale = useLocale();
+  const router = useRouter();
 
   const [kartons, setKartons] = useState(1);
-  const [added, setAdded] = useState(false);
 
   const product = {
-    id: 'gastro-tabuny',
     img: '/images/product-gastro.jpg',
     name: t('product3Name'),
     desc: t('product3Desc'),
   };
 
-  const handleAdd = () => {
-    // Add the chosen number of Kartons to the inquiry list
-    for (let n = 0; n < kartons; n++) {
-      addItem({ id: product.id, name: product.name, weight: tB('kartonUnit'), image: product.img });
-    }
-    setAdded(true);
-    setTimeout(() => setAdded(false), 2000);
+  const handleInquire = () => {
+    // Carry the B2B order into the contact form, same pattern as the pickup picker.
+    const lines = [
+      tB('emailHeading'),
+      `${t('product3Name')}: ${kartons} ${tB('quantityLabel')}`,
+      `${tB('packagingLabel')}: ${tB('kartonUnit')}`,
+    ];
+    const summary = lines.join('\n');
+
+    const params = new URLSearchParams();
+    params.set('subject', 'order');
+    params.set('message', summary);
+    params.set('kartons', String(kartons));
+
+    router.push(`/${locale}/contact?${params.toString()}`);
   };
 
   return (
@@ -67,41 +73,36 @@ export default function GastroInquiryCard() {
         </p>
 
         {/* Karton unit info */}
-        <div style={{ padding: '14px 18px', background: 'rgba(200,164,107,0.08)', border: `1px solid rgba(200,164,107,0.2)`, marginBottom: '28px' }}>
-          <div style={{ color: gold, fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: '700', marginBottom: '4px' }}>{tB('packagingLabel')}</div>
-          <div style={{ color: ivory, fontSize: '14px', fontWeight: '500' }}>{tB('kartonUnit')}</div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '14px 18px', background: 'rgba(200,164,107,0.08)', border: `1px solid rgba(200,164,107,0.2)`, marginBottom: '28px' }}>
+          <Package size={18} color={gold} strokeWidth={2} style={{ flexShrink: 0 }} />
+          <div>
+            <div style={{ color: gold, fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: '700', marginBottom: '2px' }}>{tB('packagingLabel')}</div>
+            <div style={{ color: ivory, fontSize: '14px', fontWeight: '500' }}>{tB('kartonUnit')}</div>
+          </div>
         </div>
 
         {/* Karton quantity stepper */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', marginBottom: '24px' }}>
           <span style={{ color: beige, fontSize: '12px', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: '700' }}>{tB('quantityLabel')}</span>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <button
-              type="button"
-              aria-label="decrease"
-              onClick={() => setKartons((k) => Math.max(1, k - 1))}
-              style={{ width: '36px', height: '36px', border: `1px solid rgba(200,164,107,0.35)`, background: 'transparent', color: gold, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-            >
-              <Minus size={15} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <button type="button" aria-label="decrease" onClick={() => setKartons((k) => Math.max(1, k - 1))}
+              style={{ width: '38px', height: '38px', border: `1px solid rgba(200,164,107,0.35)`, background: 'transparent', color: gold, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Minus size={16} />
             </button>
-            <span style={{ color: ivory, fontWeight: '800', fontSize: '18px', minWidth: '32px', textAlign: 'center' }}>{kartons}</span>
-            <button
-              type="button"
-              aria-label="increase"
-              onClick={() => setKartons((k) => k + 1)}
-              style={{ width: '36px', height: '36px', border: `1px solid rgba(200,164,107,0.35)`, background: 'transparent', color: gold, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-            >
-              <Plus size={15} />
+            <span style={{ color: ivory, fontWeight: '800', fontSize: '20px', minWidth: '36px', textAlign: 'center' }}>{kartons}</span>
+            <button type="button" aria-label="increase" onClick={() => setKartons((k) => k + 1)}
+              style={{ width: '38px', height: '38px', border: `1px solid rgba(200,164,107,0.35)`, background: 'transparent', color: gold, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Plus size={16} />
             </button>
           </div>
         </div>
 
         <button
           type="button"
-          onClick={handleAdd}
+          onClick={handleInquire}
           style={{
-            background: added ? 'linear-gradient(135deg, #4CAF50, #388E3C)' : `linear-gradient(135deg, ${gold}, ${goldDark})`,
-            color: added ? 'white' : walnut,
+            background: `linear-gradient(135deg, ${gold}, ${goldDark})`,
+            color: walnut,
             fontWeight: '800',
             fontSize: '12px',
             letterSpacing: '0.15em',
@@ -115,10 +116,9 @@ export default function GastroInquiryCard() {
             justifyContent: 'center',
             gap: '10px',
             boxShadow: `0 4px 20px rgba(168,132,59,0.3)`,
-            transition: 'all 0.3s ease',
           }}
         >
-          {added ? (<><Check size={15} /> {tB('addedToInquiry')}</>) : (<>{tB('addToInquiry')} <ArrowRight size={14} /></>)}
+          {tB('addToInquiry')} <ArrowRight size={14} />
         </button>
       </div>
 

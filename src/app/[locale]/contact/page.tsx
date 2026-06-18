@@ -20,6 +20,7 @@ const darkMuted = '#3D2410';
 
 function ContactForm() {
   const t = useTranslations('contact');
+  const tCollect = useTranslations('collect');
   const locale = useLocale();
   const searchParams = useSearchParams();
 
@@ -274,6 +275,7 @@ function ContactForm() {
                     <select name="subject" value={form.subject} onChange={handleChange} style={{ ...inputStyle, cursor: 'pointer' }}>
                       <option value="general">{t('subjectOptions.general')}</option>
                       <option value="pickup">{t('subjectOptions.pickup')}</option>
+                      <option value="order">{t('subjectOptions.order')}</option>
                       <option value="partnership">{t('subjectOptions.partnership')}</option>
                       <option value="feedback">{t('subjectOptions.feedback')}</option>
                       <option value="other">{t('subjectOptions.other')}</option>
@@ -285,7 +287,11 @@ function ContactForm() {
                     <div className="contact-form-grid">
                       <div>
                         <label style={labelStyle}>{t('pickupCity')}</label>
-                        <input name="pickupCity" value={form.pickupCity} onChange={handleChange} placeholder={t('pickupCity')} style={inputStyle} />
+                        <select name="pickupCity" value={form.pickupCity} onChange={handleChange} style={{ ...inputStyle, cursor: 'pointer' }}>
+                          <option value="">{t('pickupCity')}</option>
+                          <option value={tCollect('city1')}>{tCollect('city1')}</option>
+                          <option value={tCollect('city2')}>{tCollect('city2')}</option>
+                        </select>
                       </div>
                       <div>
                         <label style={labelStyle}>{t('pickupDate')}</label>

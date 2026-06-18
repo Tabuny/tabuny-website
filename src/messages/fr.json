@@ -80,8 +80,8 @@
     "product1Name": "Le Tabuny Classique",
     "product1Desc": "Notre pain plat traditionnel, préparé avec soin pour une expérience gustative authentique. Croustillant dehors, tendre dedans.",
     "product1Weight": "250g par pièce",
-    "product1Prep": "Réchauffer au four préchauffé à 180°C pendant 5 minutes.",
-    "product1Ingredients": "Farine de blé, eau, levure, sel, huile d'olive.",
+    "product1Prep": "Réchauffer au four préchauffé à 200°C pendant 3-4 minutes.",
+    "product1Ingredients": "Ingrédients: Farine de blé, eau, son de blé, sel, levure. Contient: Blé (gluten).",
     "product2Name": "Spécialités Raffinées",
     "product2Desc": "Découvrez nos variantes raffinées avec des graines de choix ou des herbes aromatiques pour une expérience gustative unique.",
     "product2Weight": "250g par pièce",
@@ -149,7 +149,8 @@
       "pickup": "Retrait",
       "partnership": "Partenariat",
       "feedback": "Retour",
-      "other": "Autre"
+      "other": "Autre",
+      "order": "Commande"
     },
     "pickupCity": "Lieu de Retrait",
     "pickupDate": "Date Souhaitée",
@@ -195,7 +196,11 @@
     "continue": "Continuer la Demande",
     "note": "Demande sans engagement – nous confirmons la date, l'heure et le lieu avec vous.",
     "summaryHeading": "Demande de retrait:",
-    "packUnitShort": "paquet(s)"
+    "packUnitShort": "paquet(s)",
+    "offerName": "Offre Spécialités Raffinées",
+    "offerText": "À partir de 5 paquets: seulement CHF 5.50 par paquet",
+    "offerHint": "Cette offre s'applique à partir de 5 paquets.",
+    "totalLabel": "Total"
   },
   "forBusinesses": {
     "hero": "Un Partenaire Fiable Pour Votre Entreprise.",
@@ -211,10 +216,11 @@
     "gastroIntro": "Quantités sur mesure pour restaurants, hôtels et commerces. Commandez par carton – nous préparons votre devis.",
     "featuredLabel": "Pour les Entreprises",
     "packagingLabel": "Unité d'Emballage",
-    "kartonUnit": "1 carton (22 paquets de 5 pces)",
+    "kartonUnit": "Unité de gros: 1 carton de 24 paquets (5 pces chacun).",
     "quantityLabel": "Cartons",
     "addToInquiry": "Ajouter à la Demande",
-    "addedToInquiry": "Ajouté"
+    "addedToInquiry": "Ajouté",
+    "emailHeading": "Nouvelle commande professionnelle:"
   },
   "trust": {
     "item1Label": "Service suisse",

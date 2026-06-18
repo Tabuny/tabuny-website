@@ -14,6 +14,13 @@ const beige = '#D8C6AE';
 const muted = '#9A8672';
 const darkMuted = '#3D2410';
 
+// Pricing
+const CLASSIC_PRICE = 5.95;
+const OFFER_PRICE = 5.50;
+const OFFER_MIN = 5; // the bulk offer starts at 5 packs
+
+const fmt = (n: number) => `CHF ${n.toFixed(2)}`;
+
 export default function PickupRequest() {
   const t = useTranslations('pickup');
   const tProd = useTranslations('products');
@@ -21,30 +28,28 @@ export default function PickupRequest() {
   const locale = useLocale();
   const router = useRouter();
 
-  const products = [
-    { id: 'classic', name: tProd('product1Name') },
-    { id: 'specialty', name: tProd('product2Name') },
-  ];
-
-  const [qty, setQty] = useState<Record<string, number>>({ classic: 0, specialty: 0 });
+  const [classic, setClassic] = useState(0);
+  const [offer, setOffer] = useState(0);
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
 
-  const setProductQty = (id: string, value: number) => {
-    setQty((prev) => ({ ...prev, [id]: Math.max(0, value) }));
-  };
+  const classicTotal = classic * CLASSIC_PRICE;
+  const offerTotal = offer * OFFER_PRICE;
+  const grandTotal = classicTotal + offerTotal;
+  const totalPacks = classic + offer;
 
-  const totalPacks = Object.values(qty).reduce((a, b) => a + b, 0);
+  const incOffer = () => setOffer((o) => (o === 0 ? OFFER_MIN : o + 1));
+  const decOffer = () => setOffer((o) => (o <= OFFER_MIN ? 0 : o - 1));
 
   const handleContinue = () => {
-    // Build a human-readable summary for the message box
-    const lines: string[] = [];
-    lines.push(t('summaryHeading'));
-    products.forEach((p) => {
-      if (qty[p.id] > 0) {
-        lines.push(`- ${p.name}: ${qty[p.id]} × ${t('packUnit')}`);
-      }
-    });
+    const lines: string[] = [t('summaryHeading')];
+    if (classic > 0) {
+      lines.push(`- ${tProd('product1Name')}: ${classic} × ${t('packUnit')} (${fmt(CLASSIC_PRICE)}/Pkg.) = ${fmt(classicTotal)}`);
+    }
+    if (offer > 0) {
+      lines.push(`- ${t('offerName')}: ${offer} × ${t('packUnit')} (${fmt(OFFER_PRICE)}/Pkg.) = ${fmt(offerTotal)}`);
+    }
+    lines.push(`${t('totalLabel')}: ${fmt(grandTotal)}`);
     if (city) lines.push(`${t('cityLabel')}: ${city}`);
     if (date) lines.push(`${t('dateLabel')}: ${date}`);
     const summary = lines.join('\n');
@@ -54,8 +59,6 @@ export default function PickupRequest() {
     params.set('message', summary);
     if (city) params.set('pickupCity', city);
     if (date) params.set('pickupDate', date);
-    params.set('classic', String(qty.classic));
-    params.set('specialty', String(qty.specialty));
 
     router.push(`/${locale}/contact?${params.toString()}`);
   };
@@ -82,6 +85,18 @@ export default function PickupRequest() {
     marginBottom: '8px',
   };
 
+  const stepperBtn = {
+    width: '34px',
+    height: '34px',
+    border: `1px solid rgba(200,164,107,0.35)`,
+    background: 'transparent',
+    color: gold,
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  };
+
   return (
     <div style={{ maxWidth: '760px', margin: '0 auto' }}>
       <div style={{ textAlign: 'center', marginBottom: '28px' }}>
@@ -91,35 +106,43 @@ export default function PickupRequest() {
 
       <div style={{ backgroundColor: wood, border: `1px solid rgba(200,164,107,0.18)`, padding: '40px', boxShadow: '0 4px 24px rgba(0,0,0,0.25)' }}>
 
-        {/* Product quantity steppers */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '28px' }}>
-          {products.map((p) => (
-            <div key={p.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', padding: '16px 20px', background: 'rgba(200,164,107,0.06)', border: `1px solid rgba(200,164,107,0.15)` }}>
-              <div>
-                <div style={{ fontFamily: '"Playfair Display", serif', color: ivory, fontSize: '17px', fontWeight: 700 }}>{p.name}</div>
-                <div style={{ color: muted, fontSize: '12px', marginTop: '2px' }}>{t('packUnit')}</div>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <button
-                  type="button"
-                  aria-label="decrease"
-                  onClick={() => setProductQty(p.id, qty[p.id] - 1)}
-                  style={{ width: '34px', height: '34px', border: `1px solid rgba(200,164,107,0.35)`, background: 'transparent', color: gold, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                >
-                  <Minus size={15} />
-                </button>
-                <span style={{ color: ivory, fontWeight: 800, fontSize: '17px', minWidth: '28px', textAlign: 'center' }}>{qty[p.id]}</span>
-                <button
-                  type="button"
-                  aria-label="increase"
-                  onClick={() => setProductQty(p.id, qty[p.id] + 1)}
-                  style={{ width: '34px', height: '34px', border: `1px solid rgba(200,164,107,0.35)`, background: 'transparent', color: gold, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                >
-                  <Plus size={15} />
-                </button>
-              </div>
+        {/* CLASSIC ROW */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', padding: '16px 20px', background: 'rgba(200,164,107,0.06)', border: `1px solid rgba(200,164,107,0.15)`, marginBottom: '16px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
+            <div style={{ fontFamily: '"Playfair Display", serif', color: ivory, fontSize: '17px', fontWeight: 700 }}>{tProd('product1Name')}</div>
+            <div style={{ color: muted, fontSize: '12px', marginTop: '2px' }}>{t('packUnit')} &middot; {fmt(CLASSIC_PRICE)}</div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <span style={{ color: gold, fontSize: '13px', fontWeight: 700, minWidth: '78px', textAlign: 'right' }}>{classic > 0 ? fmt(classicTotal) : ''}</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <button type="button" aria-label="decrease" onClick={() => setClassic((q) => Math.max(0, q - 1))} style={stepperBtn}><Minus size={15} /></button>
+              <span style={{ color: ivory, fontWeight: 800, fontSize: '17px', minWidth: '28px', textAlign: 'center' }}>{classic}</span>
+              <button type="button" aria-label="increase" onClick={() => setClassic((q) => q + 1)} style={stepperBtn}><Plus size={15} /></button>
             </div>
-          ))}
+          </div>
+        </div>
+
+        {/* SPECIAL OFFER ROW */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', padding: '16px 20px', background: 'rgba(200,164,107,0.1)', border: `1px solid rgba(200,164,107,0.3)`, marginBottom: '8px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
+            <div style={{ fontFamily: '"Playfair Display", serif', color: ivory, fontSize: '17px', fontWeight: 700 }}>{t('offerName')}</div>
+            <div style={{ color: gold, fontSize: '12px', marginTop: '2px', fontWeight: 600 }}>{t('offerText')}</div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <span style={{ color: gold, fontSize: '13px', fontWeight: 700, minWidth: '78px', textAlign: 'right' }}>{offer > 0 ? fmt(offerTotal) : ''}</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <button type="button" aria-label="decrease" onClick={decOffer} style={stepperBtn}><Minus size={15} /></button>
+              <span style={{ color: ivory, fontWeight: 800, fontSize: '17px', minWidth: '28px', textAlign: 'center' }}>{offer}</span>
+              <button type="button" aria-label="increase" onClick={incOffer} style={stepperBtn}><Plus size={15} /></button>
+            </div>
+          </div>
+        </div>
+        <p style={{ color: muted, fontSize: '11px', marginBottom: '28px', paddingLeft: '4px' }}>{t('offerHint')}</p>
+
+        {/* LIVE TOTAL */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 20px', background: 'rgba(200,164,107,0.12)', border: `1px solid rgba(200,164,107,0.35)`, marginBottom: '28px' }}>
+          <span style={{ color: beige, fontSize: '13px', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 700 }}>{t('totalLabel')}</span>
+          <span style={{ color: gold, fontSize: '22px', fontWeight: 800, fontFamily: '"Playfair Display", serif' }}>{fmt(grandTotal)}</span>
         </div>
 
         {/* City + Date */}
@@ -174,7 +197,7 @@ export default function PickupRequest() {
         .pickup-card-input:focus { border-color: rgba(200,164,107,0.7) !important; }
         .pickup-card-input::placeholder { color: rgba(154,134,114,0.7); }
         .pickup-card-input option { background-color: #2B1D16; color: #F5F0E8; }
-        .pickup-card-input[type="date"] { color-scheme: dark; }
+        input.pickup-card-input { color-scheme: dark; }
       `}</style>
     </div>
   );

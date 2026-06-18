@@ -64,7 +64,7 @@
     "value6Title": "Schweizer Qualität",
     "value6Desc": "Sicher und zuverlässig geliefert durch unseren Schweizer Betrieb nach höchsten Qualitätsstandards. Das ist unser Versprechen bei jeder Lieferung.",
     "promiseText": "Wir sind stolz darauf, Teil Ihres Genussmoments zu sein.",
-    "promiseText2": "Tabuny-Brot wird mittlerweile weit über die Schweizer Grenzen hinaus genossen. Unsere traditionell hergestellten Spezialitäten werden bereits erfolgreich in Deutschland, Luxemburg, Frankreich, den Niederlanden und Österreich vertrieben.",
+    "promiseText2": "Tabuny-Brot wird mittlerweile weit über die Schweizer Grenzen hinaus genossen. Unsere traditionelle hergestellten Spezialitäten werden bereits erfolgreich in Deutschland, Luxemburg, Frankreich, den Niederlanden und Österreich vertrieben.",
     "storyText1": "Bei Tabuny folgen wir keinem Trend, sondern einer Überzeugung. Wir glauben, dass herausragendes Brot aus drei Dingen entsteht: Zeit, besten Zutaten und dem Respekt vor dem Handwerk.",
     "storyText2": "Unser Tabuny ist mehr als nur Brot. Es ist ein Stück Geschichte, mit Liebe und Geduld von Hand geformt. Wie unsere Vorfahren backen wir es traditionell auf offenem Feuer im Tontopf-Ofen.",
     "quoteBreak": "Erleben Sie den Unterschied.",
@@ -80,8 +80,8 @@
     "product1Name": "Das Klassische Tabuny",
     "product1Desc": "Unser traditionelles Fladenbrot, mit Hingabe zubereitet für ein authentisches Geschmackserlebnis. Knusprig im Biss, zart im Kern.",
     "product1Weight": "250g pro Stück",
-    "product1Prep": "5 Min. bei 180°C im vorgeheizten Ofen aufbacken.",
-    "product1Ingredients": "Weizenmehl, Wasser, Hefe, Salz, Olivenöl.",
+    "product1Prep": "3-4 Min. bei 200°C im vorgeheizten Ofen aufbacken.",
+    "product1Ingredients": "Zutaten: Weizenmehl, Wasser, Weizenkleie, Salz, Hefe. Enthält: Weizen (Gluten).",
     "product2Name": "Feine Spezialitäten",
     "product2Desc": "Entdecken Sie unsere veredelten Varianten mit erlesenen Saaten oder aromatischen Kräutern für ein besonderes Geschmackserlebnis.",
     "product2Weight": "250g pro Stück",
@@ -149,7 +149,8 @@
       "pickup": "Abholung",
       "partnership": "Partnerschaft",
       "feedback": "Feedback",
-      "other": "Sonstiges"
+      "other": "Sonstiges",
+      "order": "Bestellung"
     },
     "pickupCity": "Abholort",
     "pickupDate": "Wunschdatum",
@@ -195,7 +196,11 @@
     "continue": "Weiter zur Anfrage",
     "note": "Unverbindliche Anfrage – wir bestätigen Datum, Uhrzeit und Ort mit Ihnen.",
     "summaryHeading": "Abholanfrage:",
-    "packUnitShort": "Packung(en)"
+    "packUnitShort": "Packung(en)",
+    "offerName": "Angebot Feine Spezialitäten",
+    "offerText": "Ab 5 Packungen: nur CHF 5.50 pro Packung",
+    "offerHint": "Dieses Angebot gilt ab 5 Packungen.",
+    "totalLabel": "Gesamt"
   },
   "forBusinesses": {
     "hero": "Ein zuverlässiger Partner für Ihr Unternehmen.",
@@ -211,10 +216,11 @@
     "gastroIntro": "Individuelle Mengen für Restaurants, Hotels und Einzelhandel. Bestellen Sie kartonweise – wir erstellen Ihr Angebot.",
     "featuredLabel": "Für Geschäfte",
     "packagingLabel": "Verpackungseinheit",
-    "kartonUnit": "1 Karton (22 Packungen à 5 Stk.)",
+    "kartonUnit": "Grosshandels-Einheit: 1 Karton zu 24 Packungen (à 5 Stück).",
     "quantityLabel": "Kartons",
     "addToInquiry": "Zur Anfrage hinzufügen",
-    "addedToInquiry": "Hinzugefügt"
+    "addedToInquiry": "Hinzugefügt",
+    "emailHeading": "Neue Geschäftsbestellung:"
   },
   "trust": {
     "item1Label": "Schweizer Service",

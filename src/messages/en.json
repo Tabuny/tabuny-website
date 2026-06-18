@@ -80,8 +80,8 @@
     "product1Name": "The Classic Tabuny",
     "product1Desc": "Our traditional flatbread, crafted with dedication for an authentic taste experience. Crispy on the outside, tender inside.",
     "product1Weight": "250g per piece",
-    "product1Prep": "Heat in preheated oven at 180°C for 5 minutes.",
-    "product1Ingredients": "Wheat flour, water, yeast, salt, olive oil.",
+    "product1Prep": "Heat in preheated oven at 200°C for 3-4 minutes.",
+    "product1Ingredients": "Ingredients: Wheat flour, water, wheat bran, salt, yeast. Contains: Wheat (gluten).",
     "product2Name": "Specialty Varieties",
     "product2Desc": "Discover our refined options with premium seeds or aromatic herbs for a special taste experience.",
     "product2Weight": "250g per piece",
@@ -149,7 +149,8 @@
       "pickup": "Pickup",
       "partnership": "Partnership",
       "feedback": "Feedback",
-      "other": "Other"
+      "other": "Other",
+      "order": "Order"
     },
     "pickupCity": "Pickup City",
     "pickupDate": "Preferred Date",
@@ -195,7 +196,11 @@
     "continue": "Continue to Request",
     "note": "Non-binding request – we'll confirm date, time and place with you.",
     "summaryHeading": "Pickup request:",
-    "packUnitShort": "pack(s)"
+    "packUnitShort": "pack(s)",
+    "offerName": "Specialty Varieties Offer",
+    "offerText": "From 5 packs: only CHF 5.50 per pack",
+    "offerHint": "This offer applies from 5 packs.",
+    "totalLabel": "Total"
   },
   "forBusinesses": {
     "hero": "A Reliable Partner For Your Business.",
@@ -211,10 +216,11 @@
     "gastroIntro": "Tailored quantities for restaurants, hotels and retail. Order by the carton and we'll prepare your quote.",
     "featuredLabel": "For Businesses",
     "packagingLabel": "Packaging Unit",
-    "kartonUnit": "1 carton (22 packs of 5 pcs)",
+    "kartonUnit": "Wholesale unit: 1 carton of 24 packs (5 pcs each).",
     "quantityLabel": "Cartons",
     "addToInquiry": "Add to Inquiry",
-    "addedToInquiry": "Added"
+    "addedToInquiry": "Added",
+    "emailHeading": "New business order:"
   },
   "trust": {
     "item1Label": "Swiss service",

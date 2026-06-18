@@ -4,8 +4,6 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
-import { useCart } from '@/context/CartContext';
-import { ShoppingBasket } from 'lucide-react';
 
 const locales = [
   { code: 'de', label: 'DE', name: 'Deutsch' },
@@ -27,7 +25,6 @@ export default function Navigation() {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
-  const { totalItems } = useCart();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
@@ -240,44 +237,6 @@ export default function Navigation() {
               )}
             </div>
 
-            {/* Cart Icon */}
-            <Link
-              href={getHref('/cart')}
-              style={{
-                position: 'relative',
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '42px',
-                height: '42px',
-                border: `1px solid rgba(200,164,107,0.35)`,
-                color: gold,
-                textDecoration: 'none',
-                flexShrink: 0,
-              }}
-            >
-              <ShoppingBasket size={18} />
-              {totalItems > 0 && (
-                <span style={{
-                  position: 'absolute',
-                  top: '-8px',
-                  right: '-8px',
-                  backgroundColor: gold,
-                  color: walnut,
-                  borderRadius: '50%',
-                  width: '20px',
-                  height: '20px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '11px',
-                  fontWeight: '800',
-                }}>
-                  {totalItems}
-                </span>
-              )}
-            </Link>
-
             {/* CTA Button */}
             <Link
               href={getHref('/for-businesses')}
@@ -375,27 +334,6 @@ export default function Navigation() {
         </div>
 
         <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          <Link
-            href={getHref('/cart')}
-            onClick={() => setMobileOpen(false)}
-            style={{
-              border: `1px solid rgba(200,164,107,0.4)`,
-              color: gold,
-              fontWeight: '700',
-              fontSize: '11px',
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              padding: '13px 24px',
-              textDecoration: 'none',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '8px',
-            }}
-          >
-            <ShoppingBasket size={14} />
-            {totalItems > 0 ? `Cart (${totalItems})` : 'Cart'}
-          </Link>
           <Link
             href={getHref('/for-businesses')}
             onClick={() => setMobileOpen(false)}

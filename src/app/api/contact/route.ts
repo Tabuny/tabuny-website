@@ -12,10 +12,10 @@ export async function POST(req: NextRequest) {
     }
 
     const subjectLabels: Record<string, Record<string, string>> = {
-      de: { general: 'Allgemeine Frage', pickup: 'Abholung', partnership: 'Partnerschaft', feedback: 'Feedback', other: 'Sonstiges' },
-      en: { general: 'General Question', pickup: 'Pickup', partnership: 'Partnership', feedback: 'Feedback', other: 'Other' },
-      fr: { general: 'Question Générale', pickup: 'Retrait', partnership: 'Partenariat', feedback: 'Retour', other: 'Autre' },
-      it: { general: 'Domanda Generale', pickup: 'Ritiro', partnership: 'Partnership', feedback: 'Feedback', other: 'Altro' },
+      de: { general: 'Allgemeine Frage', pickup: 'Abholung', order: 'Bestellung', partnership: 'Partnerschaft', feedback: 'Feedback', other: 'Sonstiges' },
+      en: { general: 'General Question', pickup: 'Pickup', order: 'Order', partnership: 'Partnership', feedback: 'Feedback', other: 'Other' },
+      fr: { general: 'Question Générale', pickup: 'Retrait', order: 'Commande', partnership: 'Partenariat', feedback: 'Retour', other: 'Autre' },
+      it: { general: 'Domanda Generale', pickup: 'Ritiro', order: 'Ordine', partnership: 'Partnership', feedback: 'Feedback', other: 'Altro' },
     };
 
     // Localized row labels for the pickup-specific fields

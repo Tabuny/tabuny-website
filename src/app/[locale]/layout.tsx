@@ -4,8 +4,7 @@ import { notFound } from 'next/navigation';
 import { unstable_setRequestLocale } from 'next-intl/server';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
-import { CartProvider } from '@/context/CartContext';
-import '@/app/globals.css';
+import '../globals.css';
 
 const locales = ['de', 'en', 'fr', 'it'];
 
@@ -24,7 +23,6 @@ export default async function LocaleLayout({
   if (!locales.includes(locale)) notFound();
   unstable_setRequestLocale(locale);
   const messages = await getMessages({ locale });
-
   return (
     <html lang={locale}>
       <head>
@@ -34,11 +32,9 @@ export default async function LocaleLayout({
       </head>
       <body style={{backgroundColor: '#2B1D16', color: '#F5F0E8', margin: 0, padding: 0}}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <CartProvider>
-            <Navigation />
-            <main>{children}</main>
-            <Footer />
-          </CartProvider>
+          <Navigation />
+          <main>{children}</main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
