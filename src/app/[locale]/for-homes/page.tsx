@@ -216,7 +216,7 @@ export default async function ForHomesPage({ params: { locale } }: { params: { l
                 <Mail size={16} /> info@tabuny.ch
               </a>
               <a href="tel:+41763985555" style={{ color: goldDeep, fontSize: '14px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px', fontWeight: '600' }}>
-                <Phone size={16} /> +41 76 398 55 55
+                <Phone size={16} /> +41 76 457 56 55
               </a>
             </div>
           </div>

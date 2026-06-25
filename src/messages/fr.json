@@ -131,7 +131,7 @@
   "footer": {
     "tagline": "Le Cœur de Chaque Table",
     "address": "Toggenburgstrasse 23, 9608 Ganterschwil",
-    "phone": "+41 76 398 55 55",
+    "phone": "+41 76 457 56 55",
     "email": "info@tabuny.ch",
     "rights": "Tous droits réservés."
   },
@@ -158,7 +158,12 @@
     "send": "Envoyer le Message",
     "success": "Merci! Nous vous répondrons bientôt.",
     "error": "Quelque chose a mal tourné. Veuillez réessayer.",
-    "disclaimer": "Envoyez-nous une demande sans engagement. Dès réception, nous vous contacterons personnellement pour discuter des quantités de livraison, des conditions et de tout le reste pour votre entreprise."
+    "disclaimer": "Envoyez-nous une demande sans engagement. Dès réception, nous vous contacterons personnellement pour discuter des quantités de livraison, des conditions et de tout le reste pour votre entreprise.",
+    "paymentHeading": "Moyens de paiement",
+    "paymentBank": "Virement bancaire (paiement anticipé)",
+    "paymentTwint": "TWINT (Simple et rapide)",
+    "paymentCash": "Paiement en espèces (Lors du retrait sur place)",
+    "followUs": "Suivez-nous"
   },
   "forHomes": {
     "label": "POUR LA MAISON",

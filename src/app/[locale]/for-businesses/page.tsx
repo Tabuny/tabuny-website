@@ -1,9 +1,8 @@
-import GastroInquiryCard from '@/components/sections/GastroInquiryCard';
 import { getTranslations } from 'next-intl/server';
 import { unstable_setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
 import { ArrowRight, Check } from 'lucide-react';
-
+import GastroInquiryCard from '@/components/sections/GastroInquiryCard';
 
 export function generateStaticParams() {
   return [
@@ -230,7 +229,7 @@ export default async function ForBusinessesPage({ params: { locale } }: { params
                   info@tabuny.ch
                 </a>
                 <a href="tel:+41763985555" style={{ color: muted, fontSize: '13px', textDecoration: 'none', letterSpacing: '0.05em' }}>
-                  +41 76 398 55 55
+                  +41 76 457 56 55
                 </a>
               </div>
             </div>

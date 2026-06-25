@@ -131,7 +131,7 @@
   "footer": {
     "tagline": "Das Herzstück des Tisches",
     "address": "Toggenburgstrasse 23, 9608 Ganterschwil",
-    "phone": "+41 76 398 55 55",
+    "phone": "+41 76 457 56 55",
     "email": "info@tabuny.ch",
     "rights": "Alle Rechte vorbehalten."
   },
@@ -158,7 +158,12 @@
     "send": "Nachricht senden",
     "success": "Vielen Dank! Wir melden uns bald.",
     "error": "Etwas ist schiefgelaufen. Bitte erneut versuchen.",
-    "disclaimer": "Senden Sie uns eine unverbindliche Anfrage. Nach Erhalt setzen wir uns persönlich mit Ihnen in Verbindung, um Liefermengen, Konditionen und alles Weitere für Ihren Betrieb zu besprechen."
+    "disclaimer": "Senden Sie uns eine unverbindliche Anfrage. Nach Erhalt setzen wir uns persönlich mit Ihnen in Verbindung, um Liefermengen, Konditionen und alles Weitere für Ihren Betrieb zu besprechen.",
+    "paymentHeading": "Zahlungsmöglichkeiten",
+    "paymentBank": "Banküberweisung (Vorkasse)",
+    "paymentTwint": "TWINT (Einfach und schnell)",
+    "paymentCash": "Barzahlung (Bei Abholung vor Ort)",
+    "followUs": "Folgen Sie uns"
   },
   "forHomes": {
     "label": "FÜR ZUHAUSE",

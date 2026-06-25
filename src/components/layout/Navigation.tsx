@@ -356,7 +356,7 @@ export default function Navigation() {
 
         <div style={{ marginTop: 'auto', color: muted, fontSize: '12px', letterSpacing: '0.1em', lineHeight: '2' }}>
           <div>info@tabuny.ch</div>
-          <div>+41 76 398 55 55</div>
+          <div>+41 76 457 56 55</div>
         </div>
       </div>
 
