@@ -203,8 +203,8 @@
     "summaryHeading": "Pickup request:",
     "packUnitShort": "pack(s)",
     "offerName": "Specialty Varieties Offer",
-    "offerText": "From 5 packs: only CHF 5.50 per pack",
-    "offerHint": "This offer applies from 5 packs.",
+    "offerText": "From 10 packs: only CHF 5.20 per pack",
+    "offerHint": "This offer applies from 10 packs.",
     "totalLabel": "Total"
   },
   "forBusinesses": {

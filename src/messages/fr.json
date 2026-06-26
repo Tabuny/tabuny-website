@@ -203,8 +203,8 @@
     "summaryHeading": "Demande de retrait:",
     "packUnitShort": "paquet(s)",
     "offerName": "Offre Spécialités Raffinées",
-    "offerText": "À partir de 5 paquets: seulement CHF 5.50 par paquet",
-    "offerHint": "Cette offre s'applique à partir de 5 paquets.",
+    "offerText": "À partir de 10 paquets: seulement CHF 5.20 par paquet",
+    "offerHint": "Cette offre s'applique à partir de 10 paquets.",
     "totalLabel": "Total"
   },
   "forBusinesses": {

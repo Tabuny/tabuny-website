@@ -15,9 +15,9 @@ const muted = '#9A8672';
 const darkMuted = '#3D2410';
 
 // Pricing
-const CLASSIC_PRICE = 5.95;
-const OFFER_PRICE = 5.50;
-const OFFER_MIN = 5; // the bulk offer starts at 5 packs
+const CLASSIC_PRICE = 5.70;
+const OFFER_PRICE = 5.20;
+const OFFER_MIN = 10; // the bulk offer starts at 10 packs
 
 const fmt = (n: number) => `CHF ${n.toFixed(2)}`;
 
