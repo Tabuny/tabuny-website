@@ -15,9 +15,8 @@ const muted = '#9A8672';
 const darkMuted = '#3D2410';
 
 // Pricing
-const CLASSIC_PRICE = 5.70;
-const OFFER_PRICE = 5.20;
-const OFFER_MIN = 10; // the bulk offer starts at 10 packs
+const CLASSIC_PRICE = 5.20;
+const OFFER_PRICE = 4.95 * 24; // 1 carton = 24 packs
 
 const fmt = (n: number) => `CHF ${n.toFixed(2)}`;
 
@@ -38,16 +37,13 @@ export default function PickupRequest() {
   const grandTotal = classicTotal + offerTotal;
   const totalPacks = classic + offer;
 
-  const incOffer = () => setOffer((o) => (o === 0 ? OFFER_MIN : o + 1));
-  const decOffer = () => setOffer((o) => (o <= OFFER_MIN ? 0 : o - 1));
-
   const handleContinue = () => {
     const lines: string[] = [t('summaryHeading')];
     if (classic > 0) {
       lines.push(`- ${tProd('product1Name')}: ${classic} × ${t('packUnit')} (${fmt(CLASSIC_PRICE)}/Pkg.) = ${fmt(classicTotal)}`);
     }
     if (offer > 0) {
-      lines.push(`- ${t('offerName')}: ${offer} × ${t('packUnit')} (${fmt(OFFER_PRICE)}/Pkg.) = ${fmt(offerTotal)}`);
+      lines.push(`- ${t('offerName')}: ${offer} × ${t('cartonUnit')} (${fmt(OFFER_PRICE)}/Krt.) = ${fmt(offerTotal)}`);
     }
     lines.push(`${t('totalLabel')}: ${fmt(grandTotal)}`);
     if (city) lines.push(`${t('cityLabel')}: ${city}`);
@@ -123,21 +119,20 @@ export default function PickupRequest() {
         </div>
 
         {/* SPECIAL OFFER ROW */}
-        <div className="picker-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', padding: '16px 20px', background: 'rgba(200,164,107,0.1)', border: `1px solid rgba(200,164,107,0.3)`, marginBottom: '8px' }}>
+        <div className="picker-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', padding: '16px 20px', background: 'rgba(200,164,107,0.1)', border: `1px solid rgba(200,164,107,0.3)`, marginBottom: '28px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
             <div className="picker-row-name" style={{ fontFamily: '"Playfair Display", serif', color: ivory, fontSize: '17px', fontWeight: 700 }}>{t('offerName')}</div>
-            <div style={{ color: gold, fontSize: '12px', marginTop: '2px', fontWeight: 600 }}>{t('offerText')}</div>
+            <div style={{ color: gold, fontSize: '12px', marginTop: '2px', fontWeight: 600 }}>{t('cartonUnit')} &middot; {fmt(OFFER_PRICE)}</div>
           </div>
           <div className="picker-row-controls" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <span style={{ color: gold, fontSize: '13px', fontWeight: 700, minWidth: '78px', textAlign: 'right' }}>{offer > 0 ? fmt(offerTotal) : ''}</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <button type="button" aria-label="decrease" onClick={decOffer} style={stepperBtn}><Minus size={15} /></button>
+              <button type="button" aria-label="decrease" onClick={() => setOffer((q) => Math.max(0, q - 1))} style={stepperBtn}><Minus size={15} /></button>
               <span style={{ color: ivory, fontWeight: 800, fontSize: '17px', minWidth: '28px', textAlign: 'center' }}>{offer}</span>
-              <button type="button" aria-label="increase" onClick={incOffer} style={stepperBtn}><Plus size={15} /></button>
+              <button type="button" aria-label="increase" onClick={() => setOffer((q) => q + 1)} style={stepperBtn}><Plus size={15} /></button>
             </div>
           </div>
         </div>
-        <p style={{ color: muted, fontSize: '11px', marginBottom: '28px', paddingLeft: '4px' }}>{t('offerHint')}</p>
 
         {/* LIVE TOTAL */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 20px', background: 'rgba(200,164,107,0.12)', border: `1px solid rgba(200,164,107,0.35)`, marginBottom: '28px' }}>

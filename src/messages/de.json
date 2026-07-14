@@ -202,9 +202,8 @@
     "note": "Unverbindliche Anfrage – wir bestätigen Datum, Uhrzeit und Ort mit Ihnen.",
     "summaryHeading": "Abholanfrage:",
     "packUnitShort": "Packung(en)",
-    "offerName": "Angebot Feine Spezialitäten",
-    "offerText": "Ab 10 Packungen: nur CHF 5.20 pro Packung",
-    "offerHint": "Dieses Angebot gilt ab 10 Packungen.",
+    "offerName": "Spezialitäten-Karton-Angebot",
+    "cartonUnit": "Karton (24 Packungen, à 5 Stück)",
     "totalLabel": "Gesamt"
   },
   "forBusinesses": {

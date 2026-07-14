@@ -202,9 +202,8 @@
     "note": "Non-binding request – we'll confirm date, time and place with you.",
     "summaryHeading": "Pickup request:",
     "packUnitShort": "pack(s)",
-    "offerName": "Specialty Varieties Offer",
-    "offerText": "From 10 packs: only CHF 5.20 per pack",
-    "offerHint": "This offer applies from 10 packs.",
+    "offerName": "Specialty Carton Offer",
+    "cartonUnit": "Carton (24 packs, 5 pcs each)",
     "totalLabel": "Total"
   },
   "forBusinesses": {

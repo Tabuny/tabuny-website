@@ -202,9 +202,8 @@
     "note": "Richiesta senza impegno – confermeremo data, ora e luogo con te.",
     "summaryHeading": "Richiesta di ritiro:",
     "packUnitShort": "confezione/i",
-    "offerName": "Offerta Specialità Raffinate",
-    "offerText": "Da 10 confezioni: solo CHF 5.20 per confezione",
-    "offerHint": "Questa offerta si applica da 10 confezioni.",
+    "offerName": "Offerta Cartone Specialità",
+    "cartonUnit": "Cartone (24 confezioni, 5 pz ciascuna)",
     "totalLabel": "Totale"
   },
   "forBusinesses": {

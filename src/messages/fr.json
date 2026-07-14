@@ -202,9 +202,8 @@
     "note": "Demande sans engagement – nous confirmons la date, l'heure et le lieu avec vous.",
     "summaryHeading": "Demande de retrait:",
     "packUnitShort": "paquet(s)",
-    "offerName": "Offre Spécialités Raffinées",
-    "offerText": "À partir de 10 paquets: seulement CHF 5.20 par paquet",
-    "offerHint": "Cette offre s'applique à partir de 10 paquets.",
+    "offerName": "Offre Carton Spécialités",
+    "cartonUnit": "Carton (24 paquets, 5 pces chacun)",
     "totalLabel": "Total"
   },
   "forBusinesses": {
